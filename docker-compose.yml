@@ -1,14 +1,9 @@
 services:
-
-#web
-  web:
+  certificatemanager:
     image: php:8.4-apache-trixie
     container_name: certificatemanager
-    volumes:
-        - ./html:/var/www/html
     ports:
-      - '8100:80'
-    stdin_open: true
-    tty: true
-    networks:
-      - certificatemanager
+      - "8100:80"
+    volumes:
+      - ./html:/var/www/html
+    restart: unless-stopped
